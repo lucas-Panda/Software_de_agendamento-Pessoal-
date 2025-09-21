@@ -1,0 +1,3 @@
+INSERT INTO ENT_USUARIO(NOME, LOGIN, SENHA, EMAIL) VALUES ('Lucas','lucas','1234','LucasTeste@gmail.com')
+
+INSERT INTO ENT_PERFIL(DESCRICAO) VALUES('Administrador')
