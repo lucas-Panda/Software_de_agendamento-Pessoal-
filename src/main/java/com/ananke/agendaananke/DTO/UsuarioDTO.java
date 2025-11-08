@@ -1,6 +1,7 @@
 package com.ananke.agendaananke.DTO;
 
 import com.ananke.agendaananke.entity.UsuarioEntity;
+import com.ananke.agendaananke.entity.enums.TipoSituacaoUsuario;
 import jakarta.persistence.Column;
 import org.springframework.beans.BeanUtils;
 
@@ -11,6 +12,7 @@ public class UsuarioDTO {
     private String login;
     private String senha;
     private String email;
+    private TipoSituacaoUsuario situacao;
 
     public UsuarioDTO(UsuarioEntity usuario) {
         BeanUtils.copyProperties(usuario, this);
@@ -70,4 +72,11 @@ public class UsuarioDTO {
     }
 //-----------------------------------------------
 
+    public TipoSituacaoUsuario getSituacao() {
+        return situacao;
+    }
+
+    public void setSituacao(TipoSituacaoUsuario situacao) {
+        this.situacao = situacao;
+    }
 }
