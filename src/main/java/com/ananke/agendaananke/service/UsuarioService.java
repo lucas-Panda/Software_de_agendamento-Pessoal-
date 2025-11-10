@@ -2,6 +2,7 @@ package com.ananke.agendaananke.service;
 
 import com.ananke.agendaananke.DTO.UsuarioDTO;
 import com.ananke.agendaananke.entity.UsuarioEntity;
+import com.ananke.agendaananke.entity.enums.TipoSituacaoUsuario;
 import com.ananke.agendaananke.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,6 +27,14 @@ public class UsuarioService {
     public void inserir(UsuarioDTO usuario) {
         UsuarioEntity usuarioEntity = new UsuarioEntity(usuario);
         usuarioEntity.setSenha(passwordEncoder.encode(usuario.getSenha()));
+        usuarioRepository.save(usuarioEntity);
+    }
+
+    public void inserirNovoUsuario(UsuarioDTO usuario){
+        UsuarioEntity usuarioEntity = new UsuarioEntity(usuario);
+        usuarioEntity.setSenha(passwordEncoder.encode(usuario.getSenha()));
+        usuarioEntity.setSituacao(TipoSituacaoUsuario.PENDENTE);
+        usuarioEntity.setId(null);
         usuarioRepository.save(usuarioEntity);
     }
 
